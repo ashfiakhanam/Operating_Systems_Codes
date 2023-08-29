@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "Please enter the numbers separated by space: "
+read -a my_array
+
+arr_len=${#my_array[*]}
+
+for ((i=0; i<arr_len-1; i++))
+do    
+    for((j=0; j<arr_len-i-1; j++))
+    do    
+        if [ ${my_array[j]} -gt ${my_array[$((j+1))]} ];
+        then
+            temp=${my_array[j]}
+            my_array[$j]=${my_array[$((j+1))]}  
+            my_array[$((j+1))]=$temp
+        fi
+    done
+done
+
+echo "Sorted Numbers: ${my_array[*]}"

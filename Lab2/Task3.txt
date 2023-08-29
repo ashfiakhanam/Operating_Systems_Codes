@@ -1,0 +1,45 @@
+#!/bin/bash
+echo "Please enter a number: "
+read num
+
+function happy_num(){
+    n=$1
+    sum=0
+    rem=0
+    while [[ $n -gt 0 ]];
+    do
+        rem=$(($n%10))
+        sum=$(($sum+$rem**2))
+        n=$(($n/10))
+    done
+    return $sum
+}
+
+prime=0
+div=0
+for (( i=1; i<=num+1; i++ ))
+do    
+    if [ $(($num%$i)) -eq 0 ];
+        then div=$(($div+1))
+    fi
+done
+
+if [ $div -eq 2 ];
+    then prime=1
+fi
+
+res=$num
+if [ $prime -eq 1 ];
+then 
+    while [ $res -ne 1 ] && [ $res -ne 4 ];
+        do  
+            happy_num res
+            res=$?
+        done
+fi
+
+if [ $res -eq 1 ];
+    then  echo "Happy Prime"
+else
+    echo "Not Happy Prime"
+fi

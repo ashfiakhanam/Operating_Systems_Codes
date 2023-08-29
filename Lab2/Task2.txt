@@ -1,0 +1,22 @@
+#!/bin/bash
+echo "Please enter a number: "
+read num
+
+
+if [ $(($num % 4)) -ne 0 ] && [ $(($num % 5)) -ne 0 ] && [ $(($num % 10)) -eq 0 ] ;
+    then echo "Rasengan"
+fi
+
+if  [ $(($num % 5)) -eq 0 ] && [ $(($num % 6)) -ne 0 ];
+    then echo "Oodama Rasengan"
+fi
+
+if [ $(($num % 5)) -ne 0 ] && [ $(($num % 6)) -eq 0 ] ;
+    then echo "Oodama Rasengan"
+fi 
+
+if [ $(($num % 5)) -eq 0 ] && [ $(($num % 6)) -eq 0 ];
+    then echo "Rasen Shiruken"
+fi
+
+
